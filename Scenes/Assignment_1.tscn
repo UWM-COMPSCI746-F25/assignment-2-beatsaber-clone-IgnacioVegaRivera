@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://b00je48xihk82"]
+[gd_scene load_steps=20 format=3 uid="uid://b00je48xihk82"]
 
 [ext_resource type="Script" uid="uid://4k1k4j4sgq0a" path="res://Scenes/assignment_1.gd" id="1_ja4fk"]
 [ext_resource type="Script" uid="uid://bhobhv52gucjm" path="res://Scripts/Shooter_Sample.gd" id="2_440ow"]
 [ext_resource type="PackedScene" uid="uid://dts2lna54s34q" path="res://Fantasy_Free/nodes/cactus_001.tscn" id="2_qqxp7"]
+[ext_resource type="AudioStream" uid="uid://dcruk8p4nxcv4" path="res://Sounds/midtom-95156.mp3" id="3_igbiy"]
 [ext_resource type="PackedScene" uid="uid://clblo4uu1xcd6" path="res://Fantasy_Free/nodes/crane_001.tscn" id="3_ipxwy"]
 [ext_resource type="PackedScene" uid="uid://cx18si7h2hsh3" path="res://Fantasy_Free/nodes/fabulous_mushroom_002.tscn" id="4_440ow"]
 [ext_resource type="Script" uid="uid://dmgbmx273u52g" path="res://Fantasy_Free/nodes/cactus_001.gd" id="4_xqvso"]
@@ -41,7 +42,7 @@ sky = SubResource("Sky_ja4fk")
 albedo_color = Color(0.180392, 0.380392, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_440ow"]
-albedo_color = Color(0.443137, 1, 0.109804, 1)
+albedo_color = Color(1, 0.690196, 0.85098, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_igbiy"]
 transparency = 1
@@ -73,9 +74,9 @@ visible = false
 transform = Transform3D(0.1, 0, 0, 0, -4.80825e-08, -0.1, 0, 1.1, -4.37114e-09, 0, 0.0188459, -1.04994)
 material_override = SubResource("StandardMaterial3D_xqvso")
 
-[node name="Area3D" type="Area3D" parent="XROrigin3D/LEFT HAND/CSGCylinder3D"]
+[node name="Area3DLeft" type="Area3D" parent="XROrigin3D/LEFT HAND/CSGCylinder3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LEFT HAND/CSGCylinder3D/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LEFT HAND/CSGCylinder3D/Area3DLeft"]
 shape = SubResource("CylinderShape3D_xqvso")
 
 [node name="RIGHT HAND" type="XRController3D" parent="XROrigin3D"]
@@ -91,9 +92,9 @@ visible = false
 transform = Transform3D(0.1, 0, 0, 0, -4.80825e-08, -0.1, 0, 1.1, -4.37114e-09, 0.00349987, 0.0073601, -1.0391)
 material_override = SubResource("StandardMaterial3D_gbwyl")
 
-[node name="Area3D" type="Area3D" parent="XROrigin3D/RIGHT HAND/CSGCylinder3D"]
+[node name="Area3DRight" type="Area3D" parent="XROrigin3D/RIGHT HAND/CSGCylinder3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RIGHT HAND/CSGCylinder3D/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RIGHT HAND/CSGCylinder3D/Area3DRight"]
 shape = SubResource("CylinderShape3D_xqvso")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -116,51 +117,75 @@ shadow_enabled = true
 transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, 0, -0.5, 0)
 material = SubResource("StandardMaterial3D_ja4fk")
 
-[node name="cactus_001" parent="." instance=ExtResource("2_qqxp7")]
-transform = Transform3D(0.99513, 0.0954805, -0.0244864, -0.0948487, 0.995158, 0.0257859, 0.0268299, -0.0233378, 0.999367, -0.368747, -0.578441, -4.93521)
-visible = false
-script = ExtResource("4_xqvso")
-
-[node name="crane_001" parent="." instance=ExtResource("3_ipxwy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.51016, 0.217576, -1.38591)
-
-[node name="fabulous_mushroom_002" parent="." instance=ExtResource("4_440ow")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.73095, 0, -0.0762321)
-
-[node name="jug_001" parent="." instance=ExtResource("5_xqvso")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.252856, 1.60241, 4.68903)
-
-[node name="cactus_002" parent="." instance=ExtResource("2_qqxp7")]
-transform = Transform3D(0.986345, 0.0963394, -0.133574, -0.0937932, 0.995272, 0.0252404, 0.135374, -0.0123675, 0.990717, 2.70416, -0.578441, -8.96773)
-visible = false
-script = ExtResource("4_xqvso")
-
-[node name="cactus_002" parent="cactus_002" instance=ExtResource("2_qqxp7")]
-transform = Transform3D(0.853679, -0.114019, 0.508167, 0.0514678, 0.989436, 0.13554, -0.518253, -0.0895534, 0.850528, -3.2098, -0.307648, 4.47723)
-visible = false
-script = ExtResource("4_xqvso")
-
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90272, -8.57985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.443, -10.58)
 material = SubResource("StandardMaterial3D_440ow")
 script = ExtResource("2_440ow")
 
 [node name="Timer" type="Timer" parent="CSGBox3D"]
 autostart = true
 
+[node name="SoundMaster" type="AudioStreamPlayer3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107002, -0.174268, 8.57855)
+stream = ExtResource("3_igbiy")
+volume_db = 80.0
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.443, -10.58)
+material = SubResource("StandardMaterial3D_440ow")
+script = ExtResource("2_440ow")
+
+[node name="Timer" type="Timer" parent="CSGBox3D2"]
+autostart = true
+
+[node name="SoundMaster" type="AudioStreamPlayer3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107002, -0.174268, 8.57855)
+stream = ExtResource("3_igbiy")
+volume_db = 80.0
+
 [node name="Dead_Zone" type="CSGBox3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0.270672, 4.92557, 2.76398)
 material_override = SubResource("StandardMaterial3D_igbiy")
 use_collision = true
 
-[node name="Area3D" type="Area3D" parent="Dead_Zone"]
+[node name="Area3DBack" type="Area3D" parent="Dead_Zone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0234398, -0.0463038, 0.104696)
 script = ExtResource("8_xqvso")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Dead_Zone/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dead_Zone/Area3DBack"]
 shape = SubResource("BoxShape3D_gbwyl")
 debug_color = Color(0, 0.603872, 0.677122, 0.42)
 
+[node name="Midtom-95156" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_igbiy")
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="cactus_001" parent="Objects" instance=ExtResource("2_qqxp7")]
+transform = Transform3D(0.99513, 0.0954805, -0.0244864, -0.0948487, 0.995158, 0.0257859, 0.0268299, -0.0233378, 0.999367, -0.368747, -0.578441, -4.93521)
+visible = false
+script = ExtResource("4_xqvso")
+
+[node name="crane_001" parent="Objects" instance=ExtResource("3_ipxwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.51016, 0.217576, -1.38591)
+
+[node name="fabulous_mushroom_002" parent="Objects" instance=ExtResource("4_440ow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.73095, 0, -0.0762321)
+
+[node name="jug_001" parent="Objects" instance=ExtResource("5_xqvso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.252856, 1.60241, 4.68903)
+
+[node name="cactus_002" parent="Objects" instance=ExtResource("2_qqxp7")]
+transform = Transform3D(0.986345, 0.0963394, -0.133574, -0.0937932, 0.995272, 0.0252404, 0.135374, -0.0123675, 0.990717, 2.70416, -0.578441, -8.96773)
+visible = false
+script = ExtResource("4_xqvso")
+
+[node name="cactus_002" parent="Objects/cactus_002" instance=ExtResource("2_qqxp7")]
+transform = Transform3D(0.853679, -0.114019, 0.508167, 0.0514678, 0.989436, 0.13554, -0.518253, -0.0895534, 0.850528, -3.2098, -0.307648, 4.47723)
+visible = false
+script = ExtResource("4_xqvso")
+
 [connection signal="timeout" from="CSGBox3D/Timer" to="CSGBox3D" method="_on_timer_timeout"]
-[connection signal="area_entered" from="Dead_Zone/Area3D" to="Dead_Zone/Area3D" method="_on_area_entered"]
-[connection signal="body_entered" from="Dead_Zone/Area3D" to="Dead_Zone/Area3D" method="_on_body_entered"]
+[connection signal="timeout" from="CSGBox3D2/Timer" to="CSGBox3D2" method="_on_timer_timeout"]
+[connection signal="area_entered" from="Dead_Zone/Area3DBack" to="Dead_Zone/Area3DBack" method="_on_area_entered"]
+[connection signal="body_entered" from="Dead_Zone/Area3DBack" to="Dead_Zone/Area3DBack" method="_on_body_entered"]
