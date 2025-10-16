@@ -15,6 +15,13 @@ run/main_scene="uid://b00je48xihk82"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[input]
+
+"Press X"={
+"deadzone": 0.2,
+"events": []
+}
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

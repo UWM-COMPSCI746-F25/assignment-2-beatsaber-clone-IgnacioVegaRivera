@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://b00je48xihk82"]
+[gd_scene load_steps=23 format=3 uid="uid://b00je48xihk82"]
 
 [ext_resource type="Script" uid="uid://4k1k4j4sgq0a" path="res://Scenes/assignment_1.gd" id="1_ja4fk"]
 [ext_resource type="Script" uid="uid://bhobhv52gucjm" path="res://Scripts/Shooter_Sample.gd" id="2_440ow"]
+[ext_resource type="Script" uid="uid://cjwtxryigrijb" path="res://Scripts/controllerInputs.gd" id="2_gbwyl"]
 [ext_resource type="PackedScene" uid="uid://dts2lna54s34q" path="res://Fantasy_Free/nodes/cactus_001.tscn" id="2_qqxp7"]
 [ext_resource type="AudioStream" uid="uid://dcruk8p4nxcv4" path="res://Sounds/midtom-95156.mp3" id="3_igbiy"]
 [ext_resource type="PackedScene" uid="uid://clblo4uu1xcd6" path="res://Fantasy_Free/nodes/crane_001.tscn" id="3_ipxwy"]
@@ -16,6 +17,12 @@ blend_mode = 3
 albedo_color = Color(1, 0.0823529, 0.270588, 0.380392)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xqvso"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkocu"]
+albedo_color = Color(0.560784, 0.803922, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k272u"]
+albedo_color = Color(1, 1, 0.443137, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gbwyl"]
 transparency = 1
@@ -65,6 +72,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 [node name="LEFT HAND" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"left_hand"
+script = ExtResource("2_gbwyl")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="XROrigin3D/LEFT HAND"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.63913e-05, -0.00446844, 0.000851631)
@@ -79,10 +87,15 @@ material_override = SubResource("StandardMaterial3D_xqvso")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LEFT HAND/CSGCylinder3D/Area3DLeft"]
 shape = SubResource("CylinderShape3D_xqvso")
 
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="XROrigin3D/LEFT HAND/CSGCylinder3D"]
+transform = Transform3D(0.8, 0, 0, 0, 0.05, -8.88178e-16, 0, -5.32907e-15, 0.8, 0, 1, -0.00145912)
+material_override = SubResource("StandardMaterial3D_fkocu")
+material = SubResource("StandardMaterial3D_k272u")
+
 [node name="RIGHT HAND" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"right_hand"
-script = ExtResource("2_440ow")
+script = ExtResource("2_gbwyl")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="XROrigin3D/RIGHT HAND"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
@@ -96,6 +109,9 @@ material_override = SubResource("StandardMaterial3D_gbwyl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RIGHT HAND/CSGCylinder3D/Area3DRight"]
 shape = SubResource("CylinderShape3D_xqvso")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="XROrigin3D/RIGHT HAND/CSGCylinder3D"]
+transform = Transform3D(0.8, 0, 0, 0, 0.05, -4.44089e-16, 0, -3.55271e-15, 0.8, 0, 1.00544, -9.53674e-07)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ja4fk")
