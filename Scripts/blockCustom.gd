@@ -1,5 +1,7 @@
 extends CSGBox3D
 
+#var blockID = randi() % 2 #ID=0 means its a purple block, ID=1 means its a green block
+
 func _ready() -> void:
 	var blockID = randi() % 2 #ID=0 means its a purple block, ID=1 means its a green block
 	var purplBlock = preload("res://Materials/leftBlockMat.tres")
