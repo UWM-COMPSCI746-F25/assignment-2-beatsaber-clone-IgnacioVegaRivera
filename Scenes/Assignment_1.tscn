@@ -75,8 +75,7 @@ tracker = &"left_hand"
 script = ExtResource("2_gbwyl")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="XROrigin3D/LEFT HAND"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.63913e-05, -0.00446844, 0.000851631)
-visible = false
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.1, -1.63913e-05, 0.0160388, 0.0952503)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="XROrigin3D/LEFT HAND"]
 transform = Transform3D(0.1, 0, 0, 0, -4.80825e-08, -0.1, 0, 1.1, -4.37114e-09, 0, 0.0188459, -1.04994)
@@ -98,8 +97,7 @@ tracker = &"right_hand"
 script = ExtResource("2_gbwyl")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="XROrigin3D/RIGHT HAND"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-visible = false
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.1, -7.36117e-05, 0.0101886, 0.10295)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="XROrigin3D/RIGHT HAND"]
 transform = Transform3D(0.1, 0, 0, 0, -4.80825e-08, -0.1, 0, 1.1, -4.37114e-09, 0.00349987, 0.0073601, -1.0391)

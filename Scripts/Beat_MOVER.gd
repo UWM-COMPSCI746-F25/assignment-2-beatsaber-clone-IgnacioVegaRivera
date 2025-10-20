@@ -31,7 +31,7 @@ func _process(delta):
 	#var blockID = randi() % 2 #ID=0 means its a purple block, ID=1 means its a green block
 	#var purplBlock = preload("res://Materials/leftBlockMat.tres")
 	#var greenBlock = preload("res://Materials/rightBlockMat.tres")
-	##print(blockID)
+	#print(blockID)
 	#if blockID == 0:
 		#self.material = purplBlock
 	#elif blockID == 1:
