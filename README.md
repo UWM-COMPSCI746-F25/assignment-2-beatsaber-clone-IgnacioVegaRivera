@@ -9,11 +9,12 @@ In this assignment, you will be implementing Beat Saber's core mechanics. You ca
 
 You should fill out this information before submitting your assignment.  Make sure to document the name and source of any third party assets such as 3D models, textures, or any other content used that was not solely written by you.  Include sufficient detail for the instructor or TA to easily find them, such as a download link.
 
-Name: 
+Name: Ignacio Vega Rivera
 
-UWM Email:
+UWM Email: vegariv2@uwm.edu
 
 Third Party Assets:
+I used models from the asset store, I searched up: Fantasy_Free and used "Fantasy Models 3D Free". I also changed my script for the XR enviroment with that of the one attatched at the end of the "On Pose Recentered" to get the related task working as intended.
 
 ## Getting Started
 
